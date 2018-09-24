@@ -6,6 +6,7 @@ import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { UiModule } from './ui/ui.module';
 
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     UiModule,
     PageNotFoundModule,
-    LoginModule
+    LoginModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
