@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public title = 'CRM Apps';
+  public faBars = faBars;
+  public faUser = faUser;
   constructor() { }
 
   ngOnInit() {
