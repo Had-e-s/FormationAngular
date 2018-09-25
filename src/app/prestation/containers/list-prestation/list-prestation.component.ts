@@ -10,7 +10,7 @@ import { State } from '../../../shared/enums/state.enum';
 })
 export class ListPrestationComponent implements OnInit {
   public collection: Prestation[];
-  public states = Object.values(State);
+  public headers: string[];
   public title: string;
 
   constructor(
@@ -21,6 +21,15 @@ export class ListPrestationComponent implements OnInit {
 
   ngOnInit() {
     this.collection = this.prestationService.collection;
+    this.headers = [
+      'Type',
+      'Client',
+      'NB Jours',
+      'TJM HT',
+      'Total HT',
+      'Total TTC',
+      'Action'
+    ];
   }
 
 }
