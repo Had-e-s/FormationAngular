@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { LoginModule } from './login/login.module';
 import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 import { UiModule } from './ui/ui.module';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     UiModule,
-    PageNotFoundModule,
+    NgbModule.forRoot(),
+    AppRoutingModule,
     LoginModule,
-    NgbModule.forRoot()
+    PageNotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+ }
