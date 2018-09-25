@@ -1,3 +1,33 @@
-<p>
-  {{title}}
-</p>
+<div class="table-respo">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Client</th>
+        <th scope="col">NB Jours</th>
+        <th scope="col">TJM HT</th>
+        <th scope="col">Total HT</th>
+        <th scope="col">Total TTC</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of collection">
+        <th>{{item.type_presta}}</th>
+        <td>{{item.client}}</td>
+        <td>{{item.nb_jours}}</td>
+        <td>{{item.tjm_ht | currency: 'EUR' }}</td>
+        <td>{{item | total : 'HT' | currency: 'EUR' }}</td>
+        <td>{{item | total : 'TTC'| currency: 'EUR' }}</td>
+        <td>
+          <select>
+            <option [value]="item.state">{{item.state}}</option>
+            <ng-container *ngFor="let state of states">
+                <option *ngIf="state !== item.state" [value]="state">{{state}}</option>
+            </ng-container>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
