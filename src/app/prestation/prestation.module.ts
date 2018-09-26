@@ -5,6 +5,7 @@ import { PrestationRoutingModule } from './prestation-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PrestaComponent } from './components/presta/presta.component';
 import { RouterModule } from '@angular/router';
+import { TemplateModule } from '../template/template.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     PrestationRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    TemplateModule
   ],
   declarations: [
     ListPrestationComponent,

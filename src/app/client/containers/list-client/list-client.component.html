@@ -1,0 +1,6 @@
+<app-template-light title="Clients">
+<app-tableau [headers]="listHeaders">
+    <app-customer *ngFor="let pres of collection" [item]="pres" ></app-customer>
+    <app-add-line [addRow]="row"></app-add-line>
+</app-tableau>
+</app-template-light>

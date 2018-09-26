@@ -1,35 +1,6 @@
+<app-template-dark title="Prestations">
 <app-tableau [headers]="listHeaders">
-    <!-- <ng-container *ngFor="let pres of collection">
-        <app-presta [item]="pres"></app-presta>
-      </ng-container> -->
     <app-presta *ngFor="let pres of collection" [item]="pres" ></app-presta>
     <app-add-line [addRow]="row"></app-add-line>
-    <!-- <p>2e projection</p> -->
-    <!-- <app-add-line title="Ajouter une nouvelle prestation"></app-add-line> -->
-    <!-- <div>
-      <a [routerLink]="prestation/add">
-        <fa-icon [icon]="faPlusCircle"></fa-icon>
-        Ajouter une prestation
-      </a>
-    </div> -->
 </app-tableau>
-
-<!-- <div class="table-respo">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col" *ngFor="let item of headers">{{ item }}</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let pres of collection">
-            <app-presta [item]="pres"></app-presta>
-          </tr>
-      <!-- <ng-container *ngFor="let pres of collection">
-        <app-presta [item]="pres"></app-presta>
-      </ng-container> -->
-      <!-- <tr app-presta [item]="pres" *ngFor="let pres of collection">
-      </tr> -->
-    <!-- </tbody>
-  </table>
-</div>  -->
+</app-template-dark>

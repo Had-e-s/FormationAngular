@@ -6,6 +6,7 @@ import { AddLineComponent } from './components/add-line/add-line.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { StateDirective } from './directives/state.directive';
+import { StateClientDirective } from './directives/state-client.directive';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { StateDirective } from './directives/state.directive';
     FontAwesomeModule,
     RouterModule
   ],
-  declarations: [TotalPipe, TableauComponent, AddLineComponent, StateDirective],
+  declarations: [TotalPipe, TableauComponent, AddLineComponent, StateDirective, StateClientDirective],
   exports: [TotalPipe, TableauComponent, AddLineComponent, StateDirective]
 })
 export class SharedModule { }
