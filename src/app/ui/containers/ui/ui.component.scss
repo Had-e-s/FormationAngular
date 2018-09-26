@@ -37,6 +37,11 @@ aside {
   width: $shadow-width;
   min-height: $shadow-min-height;
   z-index: 1000;
+  // display: block;
+}
+
+.close-aside .shadow {
+  display: none;
 }
 
 .page {

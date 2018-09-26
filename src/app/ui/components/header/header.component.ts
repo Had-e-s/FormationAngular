@@ -12,9 +12,14 @@ export class HeaderComponent implements OnInit {
   public title = 'CRM Apps';
   public faBars = faBars;
   public faUser = faUser;
+  public open = true;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  public toggle() {
+    this.open = !this.open;
+  }
 }
