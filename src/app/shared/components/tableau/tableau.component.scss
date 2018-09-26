@@ -14,3 +14,15 @@
 .state-inactif {
   background: $palette-color-two
 }
+
+tbody div  {
+  padding: 10px;
+}
+
+:host-context(app-template-light) thead {
+  background: red;
+}
+
+:host-context(app-template-dark) thead {
+  background: green;
+}
