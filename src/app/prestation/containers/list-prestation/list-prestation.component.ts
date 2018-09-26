@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Prestation } from '../../../shared/models/prestation';
 import { PrestationService } from '../../services/prestation.service';
-import { State } from '../../../shared/enums/state.enum';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { Row } from '../../../shared/interfaces/row';
 
 @Component({
   selector: 'app-list-prestation',
@@ -10,8 +11,10 @@ import { State } from '../../../shared/enums/state.enum';
 })
 export class ListPrestationComponent implements OnInit {
   public collection: Prestation[];
-  public headers: string[];
+  public listHeaders: string[];
   public title: string;
+  public faPlusCircle = faPlusCircle;
+  public row: Row;
 
   constructor(
     private prestationService: PrestationService
@@ -21,7 +24,7 @@ export class ListPrestationComponent implements OnInit {
 
   ngOnInit() {
     this.collection = this.prestationService.collection;
-    this.headers = [
+    this.listHeaders = [
       'Type',
       'Client',
       'NB Jours',
@@ -30,6 +33,11 @@ export class ListPrestationComponent implements OnInit {
       'Total TTC',
       'Action'
     ];
+    this.row = {
+      route: 'add',
+      icon: faPlusCircle,
+      libelle: 'Ajouter une prestation'
+    };
   }
 
 }

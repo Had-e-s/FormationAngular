@@ -4,13 +4,15 @@ import { ListPrestationComponent } from './containers/list-prestation/list-prest
 import { PrestationRoutingModule } from './prestation-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { PrestaComponent } from './components/presta/presta.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   imports: [
     CommonModule,
     PrestationRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   declarations: [
     ListPrestationComponent,
