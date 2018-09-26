@@ -5,8 +5,9 @@
   <td>{{item.tjm_ht | currency: 'EUR' }}</td>
   <td>{{item | total : 'HT' | currency: 'EUR' }}</td>
   <td>{{item | total : 'TTC'| currency: 'EUR' }}</td>
-  <td>
-    <select>
+  <!-- <td [ngClass]="{'state-option': item.state === state.OPTION, 'state-annule': item.state === state.ANNULE, 'state-confirme': item.state === state.CONFIRME}"> -->
+  <td [appState]="item.state">
+    <select (change)="changeState($event)">
       <option [value]="item.state">{{item.state}}</option>
       <ng-container *ngFor="let state of states">
         <option *ngIf="state !== item.state" [value]="state">{{state}}</option>

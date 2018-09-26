@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Prestation } from '../../shared/models/prestation';
 import { fakePrestation } from './fakeprestation';
+import { State } from '../../shared/enums/state.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,9 @@ export class PrestationService {
   // Get Item by ID
 
   // Update
+  public update(item: Prestation, state: State) {
+    item.state = state;
+  }
 
   // Delete
 
