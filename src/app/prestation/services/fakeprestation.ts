@@ -8,7 +8,7 @@ export const fakePrestation: Prestation[] = [
    client: 'Modis',
    nb_jours: 2,
    tjm_ht: 500,
-   state: State.OPTION
+   state: State.CONFIRME
  }),
  new Prestation({
   id: 'b1',

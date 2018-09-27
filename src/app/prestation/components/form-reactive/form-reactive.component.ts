@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { State } from '../../../shared/enums/state.enum';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Prestation } from '../../../shared/models/prestation';
 
 @Component({
@@ -26,10 +26,12 @@ export class FormReactiveComponent implements OnInit {
   private createForm(): void {
     this.form = this.fb.group({
       type_presta: [
-        this.init.type_presta
+        this.init.type_presta,
+        Validators.required
       ],
       client: [
-        this.init.client
+        this.init.client,
+        Validators.compose([Validators.required, Validators.minLength(2)])
       ],
       nb_jours: [
         this.init.nb_jours
@@ -48,5 +50,12 @@ export class FormReactiveComponent implements OnInit {
 
   public process(): void {
     this.nPresta.emit(new Prestation(this.form.value));
+  }
+
+  public isError(field: string): boolean {
+    if (field) {
+      return this.form.get(field).invalid && this.form.get(field).touched;
+    }
+    return false;
   }
 }

@@ -14,6 +14,9 @@ import { UiModule } from './ui/ui.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.firebase';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { Router } from '@angular/router';
     BrowserModule,
     UiModule,
     NgbModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AppRoutingModule,
     LoginModule,
     PageNotFoundModule

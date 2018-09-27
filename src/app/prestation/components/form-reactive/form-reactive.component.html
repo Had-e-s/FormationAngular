@@ -3,13 +3,14 @@
 
       <div class="form-group">
         <label for="type">Type</label>
-        <input type="text" class="form-control" id="type" placeholder="type of prestation" formControlName="type_presta" required>
-        <!-- <div class="alert alert-danger" *ngIf="type.invalid && type.touched">Champ invalide</div> -->
+        <input type="text" class="form-control" id="type" placeholder="type of prestation" formControlName="type_presta">
+        <div class="alert alert-danger" *ngIf="isError('type_presta')">Champ invalide</div>
       </div>
 
       <div class="form-group">
         <label for="client">Client</label>
-        <input type="text" class="form-control" id="client" required minlength="3" formControlName="client">
+        <input type="text" class="form-control" id="client" formControlName="client">
+        <div class="alert alert-danger" *ngIf="isError('client')">Champ invalide</div>
       </div>
 
       <div class="form-group">

@@ -1,6 +1,6 @@
 <app-template-dark title="Prestations">
 <app-tableau [headers]="listHeaders">
-    <app-presta *ngFor="let pres of collection" [item]="pres" ></app-presta>
+    <app-presta *ngFor="let pres of collection | async" [item]="pres" ></app-presta>
     <app-add-line [addRow]="row"></app-add-line>
 </app-tableau>
 </app-template-dark>
