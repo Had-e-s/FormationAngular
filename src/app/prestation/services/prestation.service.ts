@@ -25,6 +25,11 @@ export class PrestationService {
 
   // Get Item by ID
 
+  // Add Item
+  public add(item: Prestation): void {
+    this.collection.push(item);
+  }
+
   // Update
   public update(item: Prestation, state: State) {
     item.state = state;

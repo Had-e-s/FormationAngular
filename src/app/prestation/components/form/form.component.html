@@ -1,0 +1,41 @@
+<div class="container">
+  <form novalidate #form="ngForm" (ngSubmit)="process()">
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input #type="ngModel" [(ngModel)]="newPresta.type_presta" name="type" type="text" class="form-control" id="type" placeholder="type of prestation" required>
+      <div class="alert alert-danger" *ngIf="type.invalid && type.touched">Champs invalide</div>
+    </div>
+
+    <div class="form-group">
+      <label for="client">Client</label>
+      <input [(ngModel)]="newPresta.client" name="client"  type="text" class="form-control" id="client" required minlength="3">
+    </div>
+
+    <div class="form-group">
+      <label for="nbjour">Nb jours</label>
+      <input [(ngModel)]="newPresta.nb_jours" name="nbjour"  type="number" class="form-control" id="nbjour">
+    </div>
+
+    <div class="form-group">
+        <label for="tjm">Tjm HT</label>
+        <input [(ngModel)]="newPresta.tjm_ht" name="tjm"  type="number" class="form-control" id="tjm">
+      </div>
+
+    <div class="form-group">
+        <label for="tva">Taux TVA</label>
+        <input [(ngModel)]="newPresta.taux_tva" name="tva"  type="number" class="form-control" id="tva">
+    </div>
+
+    <div class="form-group">
+        <label for="state">Action</label>
+        <select [(ngModel)]="newPresta.state" name="state"  id="state" class="form-control">
+          <!-- <option selected>Choose...</option> -->
+          <option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+        </select>
+    </div>
+
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>

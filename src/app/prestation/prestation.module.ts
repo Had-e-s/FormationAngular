@@ -6,6 +6,11 @@ import { SharedModule } from '../shared/shared.module';
 import { PrestaComponent } from './components/presta/presta.component';
 import { RouterModule } from '@angular/router';
 import { TemplateModule } from '../template/template.module';
+import { AddPrestationComponent } from './containers/add-prestation/add-prestation.component';
+import { EditPrestationComponent } from './containers/edit-prestation/edit-prestation.component';
+import { FormComponent } from './components/form/form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
 
 
 @NgModule({
@@ -14,11 +19,17 @@ import { TemplateModule } from '../template/template.module';
     PrestationRoutingModule,
     SharedModule,
     RouterModule,
-    TemplateModule
+    TemplateModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     ListPrestationComponent,
-    PrestaComponent
+    PrestaComponent,
+    AddPrestationComponent,
+    EditPrestationComponent,
+    FormComponent,
+    FormReactiveComponent
   ]
 })
 export class PrestationModule { }
