@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.firebase';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFirestoreModule,
     AppRoutingModule,
     LoginModule,
-    PageNotFoundModule
+    PageNotFoundModule,
+    HttpClientModule
   ],
   providers: [ { provide: LOCALE_ID, useValue: 'fr' }],
   bootstrap: [AppComponent]

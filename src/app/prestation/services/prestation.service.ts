@@ -5,6 +5,7 @@ import { State } from '../../shared/enums/state.enum';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +15,15 @@ export class PrestationService {
   private _collection: Observable<Prestation[]>;
 
   constructor(
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private http: HttpClient
   ) {
     this.itemsCollection = afs.collection<Prestation>('prestation');
-    // 1ere methode
     this._collection = this.itemsCollection.valueChanges().pipe(
       map(data => data.map(presta => new Prestation(presta)))
     );
-    // 2e methode
-    // this._collection = this.itemsCollection.valueChanges().pipe(
-    //   map((data) => {
-    //     const tab = [];
-    //     data.forEach((presta) => {
-    //       tab.push(new Prestation(presta));
-    //     });
-    //     return tab;
-    //   })
-    // );
+
+    // this.http.get<Prestation[]>('url_api/prestation');
    }
 
   // Get Collections
@@ -46,13 +39,13 @@ export class PrestationService {
   // Get Item by ID
 
    // add presta
-   add(item: Prestation): Promise<any> {
+   add(item: Prestation): any {
     const id = this.afs.createId();
     const prestation = { id, ...item };
     return this.itemsCollection.doc(id).set(prestation).catch((e) => {
       console.log(e);
     });
-    // return this.http.post('urlapi/prestations', item);
+    // return this.http.post('urlapi/prestation', item);
   }
 
 
