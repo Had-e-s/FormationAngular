@@ -45,15 +45,33 @@ export class PrestationService {
 
   // Get Item by ID
 
-  // Add Item
-  public add(item: Prestation): void {
-    // this.collection.push(item);
-    // this.itemsCollection.add(item);
+   // add presta
+   add(item: Prestation): Promise<any> {
+    const id = this.afs.createId();
+    const prestation = { id, ...item };
+    return this.itemsCollection.doc(id).set(prestation).catch((e) => {
+      console.log(e);
+    });
+    // return this.http.post('urlapi/prestations', item);
   }
 
-  // Update
-  public update(item: Prestation, state: State) {
-    item.state = state;
+
+  update(item: Prestation, option?: State): Promise<any> {
+    const presta  = {...item};
+    if (option) {
+      presta.state = option;
+    }
+    return this.itemsCollection.doc(item.id).update(presta).catch((e) => {
+      console.log(e);
+    });
+    // return this.http.patch('urlapi/prestations/'+item.id, presta);
+  }
+
+  public delete(item: Prestation): Promise<any> {
+    return this.itemsCollection.doc(item.id).delete().catch((e) => {
+      console.log(e);
+    });
+    // return this.http.delete(`urlapi/prestations/${item.id}`);
   }
 
   // Delete
