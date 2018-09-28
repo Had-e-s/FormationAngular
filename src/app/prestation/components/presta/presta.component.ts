@@ -4,6 +4,7 @@ import { State } from '../../../shared/enums/state.enum';
 import { PrestationService } from '../../services/prestation.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { database } from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-presta',
@@ -16,7 +17,8 @@ export class PrestaComponent implements OnInit {
   public faTrashAlt = faTrashAlt;
   @Input() item: Prestation;
   constructor(
-    private prestationService: PrestationService
+    private prestationService: PrestationService,
+    private router: Router
   ) {
 
    }
@@ -37,5 +39,9 @@ export class PrestaComponent implements OnInit {
     this.prestationService.delete(this.item).then((data) => {
       this.prestationService.msg$.next('Prestation Supprimée !');
     });
+  }
+
+  public edit() {
+    this.router.navigate(['prestation/edit/', this.item.id]);
   }
 }

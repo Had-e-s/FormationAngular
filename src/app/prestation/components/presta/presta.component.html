@@ -1,4 +1,4 @@
-<tr>
+<tr (click) = "edit()">
   <th>{{item.type_presta}}</th>
   <td>{{item.client}}</td>
   <td>{{item.nb_jours}}</td>
@@ -7,7 +7,7 @@
   <td>{{item | total : 'TTC'| currency: 'EUR' }}</td>
   <!-- <td [ngClass]="{'state-option': item.state === state.OPTION, 'state-annule': item.state === state.ANNULE, 'state-confirme': item.state === state.CONFIRME}"> -->
   <td [appState]="item.state">
-    <select (change)="changeState($event)">
+    <select (change)="changeState($event)" (click) = "$event.stopPropagation();">
       <option [value]="item.state">{{item.state}}</option>
       <ng-container *ngFor="let state of states">
         <option *ngIf="state !== item.state" [value]="state">{{state}}</option>
@@ -15,6 +15,6 @@
     </select>
   </td>
   <td>
-    <fa-icon [icon]="faTrashAlt" (click) = "delete()"></fa-icon>
+    <fa-icon [icon]="faTrashAlt" (click) = "$event.stopPropagation(); delete()"></fa-icon>
   </td>
 </tr>
