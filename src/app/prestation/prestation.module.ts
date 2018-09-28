@@ -11,6 +11,7 @@ import { EditPrestationComponent } from './containers/edit-prestation/edit-prest
 import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormReactiveComponent } from './components/form-reactive/form-reactive.
     RouterModule,
     TemplateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   declarations: [
     ListPrestationComponent,

@@ -13,7 +13,7 @@ import { Observable, Subscription } from 'rxjs';
 export class ListPrestationComponent implements OnInit {
 
   // public collection: Prestation[];
-  public collection: Observable<Prestation[]>;
+  public collection$: Observable<Prestation[]>;
   public listHeaders: string[];
   public title: string;
   public faPlusCircle = faPlusCircle;
@@ -27,7 +27,7 @@ export class ListPrestationComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.collection = this.prestationService.collection;
+    this.collection$ = this.prestationService.collection$;
     // this.sub = this.prestationService.collection.subscribe((data) => {
     //   this.collection = data;
     // });
@@ -39,7 +39,8 @@ export class ListPrestationComponent implements OnInit {
       'TJM HT',
       'Total HT',
       'Total TTC',
-      'Action'
+      'Action',
+      'Delete'
     ];
     this.row = {
       route: 'add',
